@@ -9,16 +9,17 @@ export default function Home({ posts }) {
     </div>
   );
 }
-async function getPosts() {
+
+const getPosts = async () => {
   const res = await fetch(`	
- ${BLOG_URL}/ghost/api/v3/content/posts/?key=${CONTENT_API_KEY}f&fields=reading_time,slug,custom_excerpt,feature_image,published_at,title`).then(
+ ${BLOG_URL}/ghost/api/v3/content/posts/?key=${CONTENT_API_KEY}&fields=reading_time,slug,custom_excerpt,feature_image,published_at,title`).then(
     (res) => res.json()
   );
-  const posts = res.posts;
 
+  const posts = res.posts;
   return posts;
-}
-export const getStaticProps = async ({ params }) => {
+};
+export const getStaticProps = async () => {
   const posts = await getPosts();
   return {
     props: {

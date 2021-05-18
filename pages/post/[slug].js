@@ -12,7 +12,6 @@ async function getPost(slug) {
     (res) => res.json()
   );
   const posts = res.posts;
-
   return posts[0];
 }
 
@@ -36,13 +35,18 @@ export const getStaticPaths = () => {
 const Post = ({ post }) => {
   const router = useRouter();
   if (router.isFallback) {
-    return <h1>Loading!!!</h1>;
+    return (
+      <div>
+        <Meta title="Loading" />
+        <h1>Loading!!!</h1>
+      </div>
+    );
   }
 
   const myDate = new Date(post.published_at).toLocaleDateString();
   return (
     <>
-      <Meta title={post.title} description={post.custom_excerpt} />
+      <Meta title={post.title} />
       <div className={postStyles.grid}>
         <p className={postStyles.published}>
           Published at: <span> {myDate}</span>
