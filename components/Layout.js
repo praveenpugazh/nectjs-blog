@@ -8,11 +8,9 @@ const Layout = ({ children }) => {
     <>
       <Meta />
       <Nav />
+      <Header />
       <div className={layoutStyles.container}>
-        <main className={layoutStyles.main}>
-          <Header />
-          {children}
-        </main>
+        <main className={layoutStyles.main}>{children}</main>
         <Footer />
       </div>
     </>

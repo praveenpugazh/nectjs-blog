@@ -47,14 +47,17 @@ const Post = ({ post }) => {
   return (
     <>
       <Meta title={post.title} />
-      <div className={postStyles.grid}>
+      <div className={postStyles.gridSingle}>
         <p className={postStyles.published}>
           Published at: <span> {myDate}</span>
         </p>
         <h3 className={postStyles.title}>{post.title}</h3>
-        <div dangerouslySetInnerHTML={{ __html: post.html }}></div>
+        <div
+          className={postStyles.danger}
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        ></div>
         <Link href="/">
-          <a className={postStyles.btn}>Go Back</a>
+          <a className={postStyles.btn}>&larr;</a>
         </Link>
       </div>
     </>

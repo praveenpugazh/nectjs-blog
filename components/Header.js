@@ -1,11 +1,9 @@
 import headerStyles from "../styles/Header.module.css";
 const Header = () => {
   return (
-    <div>
+    <div className={headerStyles.header}>
       <h1 className={headerStyles.title}>Ajay Raju</h1>
-      <p className={headerStyles.description}>
-        Keep upto date with latest trading news
-      </p>
+      <p className={headerStyles.description}>Thoughts, stories and ideas.</p>
     </div>
   );
 };
