@@ -51,6 +51,6 @@
     margin-top: 10px;
   }
   .nav ul li a {
-    font-size: 0.9rem;
+    display: block;
   }
 }

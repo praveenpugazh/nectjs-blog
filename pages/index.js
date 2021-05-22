@@ -12,11 +12,12 @@ export default function Home({ posts }) {
 
 const getPosts = async () => {
   const res = await fetch(`	
- ${BLOG_URL}/ghost/api/v3/content/posts/?key=${CONTENT_API_KEY}&fields=reading_time,slug,custom_excerpt,feature_image,published_at,title`).then(
+ ${BLOG_URL}/ghost/api/v3/content/posts/?key=${CONTENT_API_KEY}&limit=all`).then(
     (res) => res.json()
   );
 
   const posts = res.posts;
+
   return posts;
 };
 export const getStaticProps = async () => {
