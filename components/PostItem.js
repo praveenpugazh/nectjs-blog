@@ -2,12 +2,17 @@ import React from "react";
 import Link from "next/link";
 import postStyles from "../styles/Posts.module.css";
 const Post = ({ post }) => {
-  const excerpt = "Something short about the post goes here";
+  let excerpt = "Something short about the post goes here";
   const myDate = new Date(post.published_at).toLocaleDateString();
   const altImg = "https://static.ghost.org/v4.0.0/images/welcome-to-ghost.png";
   let newExpert = "";
-  if (post.custom_excerpt.length > 100) {
+  if (
+    typeof post.custom_excerpt == "string" &&
+    post.custom_excerpt.length > 100
+  ) {
     newExpert = post.custom_excerpt.substr(0, 100) + "...";
+  } else {
+    excerpt = "Something short about the post goes here";
   }
   return (
     <Link href="/post/[slug]" as={`/post/${post.slug}`}>
